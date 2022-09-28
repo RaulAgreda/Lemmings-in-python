@@ -42,9 +42,9 @@ class UI_Text_Button:
         if self.__onButton():
             if self.__buttonState != 2:
                 self.__buttonState = 1
-            if pyxel.btnp(pyxel.MOUSE_LEFT_BUTTON):
+            if pyxel.btnp(pyxel.MOUSE_BUTTON_LEFT):
                 self.__buttonState = 2
-            if pyxel.btnr(pyxel.MOUSE_LEFT_BUTTON) and self.__buttonState == 2:
+            if pyxel.btnr(pyxel.MOUSE_BUTTON_LEFT) and self.__buttonState == 2:
                     self.__buttonState = 3
         else:
             self.__buttonState = 0

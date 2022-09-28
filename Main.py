@@ -22,16 +22,16 @@ class App:
         
         WIDTH = 256
         HEIGHT = 256
-        CAPTION = "Lemmings by Raúl Ágreda and Daniel Fernández"
 
-        """app_state:
-        0: pantalla de inicio,
+
+        """
+		0: pantalla de inicio,
         1: game
         2: abrir menú con los controles del juego y tal
         3: Game Over """
         self.__app_state = 0
 
-        pyxel.init(WIDTH, HEIGHT, caption = CAPTION,fps = 60)
+        pyxel.init(WIDTH, HEIGHT,fps = 60)
 
         #Load images
         pyxel.load("assets/my_resource.pyxres")
@@ -156,7 +156,7 @@ class App:
                 if not lemming.alive:
                     lemming.lemmingState = 0
                     lemming.alive = True
-                if pyxel.btnp(pyxel.MOUSE_LEFT_BUTTON):
+                if pyxel.btnp(pyxel.MOUSE_BUTTON_LEFT):
                     if self.__mousePos.distance(lemming.position) < 20:
                         lemming.lemmingState = 2
                 if lemming.position.y > 270:

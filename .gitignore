@@ -1,7 +1,4 @@
 
 *.ini
 *.pyc
-*.pyc
-*.pyc
-*.pyc
-*.pyc
+*.swp

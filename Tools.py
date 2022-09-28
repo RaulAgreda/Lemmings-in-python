@@ -31,9 +31,9 @@ class Tools:
 
     def update(self):
 
-        if pyxel.btnp(pyxel.MOUSE_RIGHT_BUTTON):
+        if pyxel.btnp(pyxel.MOUSE_BUTTON_RIGHT):
             self.__openMenu()
-        if pyxel.btnr(pyxel.MOUSE_RIGHT_BUTTON):
+        if pyxel.btnr(pyxel.MOUSE_BUTTON_RIGHT):
             self.__closeMenu()
         
         self.__selectToolByKey()
@@ -64,7 +64,7 @@ class Tools:
         """Dibuja la herramienta seleccionada en la posicón del cursor e indica si se puede colocar o no"""
         toolPos = self.__mousePos - self.__tablero.getRelativeCoord(self.__mousePos)
 
-        if self.__toolSelected != -1 and not pyxel.btn(pyxel.MOUSE_RIGHT_BUTTON):
+        if self.__toolSelected != -1 and not pyxel.btn(pyxel.MOUSE_BUTTON_RIGHT):
             pyxel.blt(toolPos.x,toolPos.y,2,self.__toolSelected*16,0 if self.__canBePlaced() else 16,16,16,0)
 
     def __drawBlockerArrow(self):
@@ -83,7 +83,7 @@ class Tools:
         tabPos = self.__tablero.getCoord(self.__mousePos)
         tools_tuple = (4,6,18,19,12)
 
-        if pyxel.btnp(pyxel.MOUSE_LEFT_BUTTON):
+        if pyxel.btnp(pyxel.MOUSE_BUTTON_LEFT):
             #Construir item
             if self.__toolSelected != -1:
                 if self.__canBePlaced():
@@ -118,11 +118,11 @@ class Tools:
     def __freeBlocker(self):
         """Esta función libera a un lemming bloqueador"""
 
-        if pyxel.btnp(pyxel.MOUSE_LEFT_BUTTON):
+        if pyxel.btnp(pyxel.MOUSE_BUTTON_LEFT):
 
             self.__blockerSelected = self.__tablero.getLemmingAt(self.__tablero.getCoord(self.__mousePos),2)
                 
-        if pyxel.btn(pyxel.MOUSE_LEFT_BUTTON) and self.__toolSelected == -1:
+        if pyxel.btn(pyxel.MOUSE_BUTTON_LEFT) and self.__toolSelected == -1:
             if self.__blockerSelected != None:
                 # Centra las coordenadas indicando donde se encuentra el lemming
                 lemmingCoord = self.__blockerSelected.position - self.__tablero.getRelativeCoord(self.__blockerSelected.position) + (8,10)
